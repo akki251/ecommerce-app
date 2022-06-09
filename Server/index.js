@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 
 app.use('/api', productsRoutes);
-
 app.use(errorController);
 //  fix before production
 const port = 5000 || process.env.PORT;

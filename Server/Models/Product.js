@@ -6,11 +6,16 @@ const productSchema = mongoose.Schema({
   description: String,
   image: {
     type: String,
-    default:
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixselo.com%2Ftestimonial%2Fneo-systek%2Fdummy-placeholder-image-400x400%2F&psig=AOvVaw2TNmUx316j9u0S1U5i4cnM&ust=1654528068970000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJj5pcHLlvgCFQAAAAAdAAAAABAD',
+    default: 'https://dummyimage.com/300/09f/fff.png',
   },
-  category: String,
-  count: Number,
+  category: {
+    type: String,
+    default: 'others',
+  },
+  count: {
+    type: Number,
+    default: 100,
+  },
   rating: Number,
 });
 
