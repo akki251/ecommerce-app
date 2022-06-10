@@ -6,6 +6,7 @@ import ProductDetail from './components/Products/ProductDetail';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import CreateProduct from './components/Products/CreateProduct';
 import './index.css';
+import Cart from './components/Cart/Cart';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" exact component={() => <Redirect to="/products" />} />
         <Route path="/products" exact component={AllProducts} />
         <Route path="/products/create" exact component={CreateProduct} />
+        <Route path="/cart" exact component={Cart} />
         <Route path="/products/:id" exact component={ProductDetail} />
       </Switch>
     </BrowserRouter>

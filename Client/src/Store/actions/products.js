@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { FETCH_ALL, REMOVE_PRODUCT, START_LOADING, STOP_LOADING } from '../actionConstants.js';
 import * as api from '../api/index.js';
 
@@ -12,7 +11,6 @@ export const getAllProductsReq = () => async (dispatch) => {
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: STOP_LOADING });
   } catch (error) {
-    console.log(error.message);
   }
 };
 
@@ -33,16 +31,17 @@ export const getProductDetailReq = (id) => async (dispatch) => {
 export const addProductReq = (productData, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const {
-      data: { data },
-    } = await api.addProduct(productData);
+    const { data } = await api.addProduct(productData);
 
-    dispatch({ type: 'ADD_PRODUCT', payload: data });
-    dispatch({ type: STOP_LOADING });
-    history.push('/');
+    dispatch({ type: 'ADD_PRODUCT', payload: data.data });
+    dispatchSuccessAlert(dispatch, data.message);
+    setTimeout(() => {
+      history.push('/');
+    }, 1500);
   } catch (error) {
-    console.log(error.message);
+    dispatchErrorAlert(error.message);
   }
+  dispatch({ type: STOP_LOADING });
 };
 
 export const updateProductReq = (productData, history, _id) => async (dispatch) => {
@@ -53,21 +52,29 @@ export const updateProductReq = (productData, history, _id) => async (dispatch) 
     } = await api.updateProduct(productData, _id);
 
     dispatch({ type: 'UPDATE_PRODUCT', payload: data });
-    dispatch({ type: STOP_LOADING });
-    history.push('/');
+    dispatchSuccessAlert(dispatch, 'Product updated');
+    setTimeout(() => {
+      history.push('/');
+    }, 1500);
   } catch (error) {
-    console.log(error.message);
+    dispatchErrorAlert(dispatch, 'something went wrong');
   }
+  dispatch({ type: STOP_LOADING });
 };
 
 export const removeProductReq = (_id) => async (dispatch) => {
   try {
-    // dispatch({ type: START_LOADING });
     await api.removeProduct(_id);
     dispatch({ type: REMOVE_PRODUCT, payload: _id });
-    // dispatch({ type: STOP_LOADING });
-    // history.push('/');
+    dispatchSuccessAlert(dispatch, 'Product removed');
   } catch (error) {
-    console.log(error.message);
+    dispatchSuccessAlert(dispatch, 'Some error! Please try again');
   }
+};
+
+const dispatchSuccessAlert = async (dispatch, message) => {
+  dispatch({ type: 'SUCCESS', payload: message });
+};
+const dispatchErrorAlert = async (dispatch, message) => {
+  dispatch({ type: 'ERROR', payload: message });
 };

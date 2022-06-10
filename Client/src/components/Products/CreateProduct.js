@@ -9,7 +9,7 @@ import {
   Grid,
   Loading,
 } from '@nextui-org/react';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addProductReq, updateProductReq } from '../../Store/actions/products';
@@ -32,7 +32,6 @@ const CreateProduct = ({ isUpdating, currentProduct }) => {
     e.preventDefault();
     if (isUpdating) {
       dispatch(updateProductReq(newProductData, history, currentProduct._id));
-      // console.log(newProductData);
     } else dispatch(addProductReq(newProductData, history));
   };
 

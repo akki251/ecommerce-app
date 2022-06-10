@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Container,
-  Grid,
-  Loading,
-  Text,
-  Card,
-  Divider,
-  Button,
-  Image,
-  Input,
-  Spacer,
-} from '@nextui-org/react';
+import { Container, Grid, Loading, Text, Card, Divider, Button, Image } from '@nextui-org/react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import StarRatings from 'react-star-ratings';
 import { getProductDetailReq } from '../../Store/actions/products';
-import { ListItem } from '@material-ui/core';
 import { ADD_ITEM } from '../../Store/actionConstants';
 import CreateProduct from './CreateProduct';
 
@@ -27,20 +15,12 @@ const ProductDetail = () => {
 
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const initialState = {
-    title: '',
-    price: '',
-    description: '',
-    rating: '',
-  };
-
-  const [updateProductState, setUpdateProductState] = useState(initialState);
-
   useEffect(() => {
     dispatch(getProductDetailReq(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const addToCartHandler = () => {
+    dispatch({ type: 'SUCCESS', payload: 'Product added to cart 👜' });
     dispatch({ type: ADD_ITEM, payload: product });
   };
 

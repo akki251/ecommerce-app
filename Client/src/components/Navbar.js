@@ -11,21 +11,36 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
+  const alert = useSelector((state) => state.alert);
+
+  const showToast = (type, message) => {
+    toast[type](message);
+  };
+
   useEffect(() => {
-    const cartItemsFromLocal = JSON.parse(localStorage.getItem('cartItems'));
-    dispatch({ type: 'LOAD_CART_ITEMS', payload: cartItemsFromLocal || [] });
+    dispatch({ type: 'LOAD_CART_ITEMS' });
   }, [dispatch]);
 
-  // console.log(cartItems);
-  // console.log(cartItems);
+  const totalCartItems = cartItems.reduce((prev, curr) => prev + curr.currentCount, 0);
 
-  const showToast = () => {
-    toast.success('Here is your toast');
-  };
+  useEffect(() => {
+    if (alert.success) {
+      showToast('success', alert.message);
+    } else if (alert.error) {
+      showToast('error', alert.message);
+    }
+  }, [alert]);
 
   return (
     <Container>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            padding: '16px',
+            color: '#6f66e5',
+          },
+        }}
+      />
       <Card style={{ backgroundColor: '#12134' }}>
         <div className="d-flex navbar justify-content-between">
           <div className="navbar__links d-flex align-items-center gap-5 ">
@@ -70,9 +85,11 @@ const Navbar = () => {
                   borderRadius: '50%',
                 }}
               >
-                {cartItems.length}
+                {totalCartItems}
               </span>
-              <FaCartPlus size={30} color="blue" />
+              <Link to="/cart">
+                <FaCartPlus size={30} color="blue" />
+              </Link>
             </span>
           </div>
         </div>

@@ -1,13 +1,9 @@
 import { Container, Spacer, Text, Grid, Loading, Switch } from '@nextui-org/react';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
 import { getAllProductsReq } from '../../Store/actions/products';
 import Product from './Product';
-// import { Card, Divider, Input, Button } from '@nextui-org/react';
-// import { useHistory } from 'react-router-dom';
-// import { addProductReq } from '../../Store/actions/products';
+
 
 const AllProducts = () => {
   const dispatch = useDispatch();
