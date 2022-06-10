@@ -15,8 +15,8 @@ app.use(cors());
 
 app.use('/api', productsRoutes);
 app.use(errorController);
-//  fix before production
-const port = 5000 || process.env.PORT;
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, (req, res) => {
   console.log(`SERVER RUNNING ON ${port} 😊`);
