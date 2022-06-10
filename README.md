@@ -27,14 +27,49 @@ The application is composed of the following Features:
 - Used Mongo DB as database 
 
 
-
-
-
-
-
-
-
 ## Screenshots
 
 ![App Screenshot](https://github.com/akki251/ecommerce-app/blob/master/mockuper.png)
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/akki251/ecommerce-app.git
+```
+
+Go to the project directory
+
+```bash
+  cd ecommerce-app
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the Server
+
+```bash
+  npm run dev
+```
+
+Start the Client
+
+```bash
+  npm start
+```
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`CONNECTION_URL`
+
 
