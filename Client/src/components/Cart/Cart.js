@@ -7,7 +7,7 @@ const Cart = () => {
   const { cartItems, isLoading } = useSelector((state) => state.cart);
 
   const totalBilAmount = cartItems?.reduce(
-    (accum, curr) => accum + curr.currentCount * curr.price,
+    (accum, curr) => accum + curr?.currentCount * curr?.price,
     0,
   );
 
@@ -23,13 +23,16 @@ const Cart = () => {
       <Spacer y={2} />
 
       {!isLoading &&
-        cartItems.map((item) => (
+        cartItems?.map((item) => (
           /// change after fetching real items
           <CartItem key={Math.random() + item._id} item={item} />
         ))}
       {!isLoading && cartItems?.length === 0 && (
         <Text className="text-center mt-5" h1>
-          No Items in cart <span role="img" aria-label='emoji'>🛒</span>
+          No Items in cart{' '}
+          <span role="img" aria-label="emoji">
+            🛒
+          </span>
         </Text>
       )}
       {isLoading && (

@@ -56,7 +56,7 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
 
     case 'LOAD_CART_ITEMS': {
       const cartItemsFromLocal = JSON.parse(localStorage.getItem('cartItems'));
-      return { cartItems: cartItemsFromLocal, isLoading: false };
+      return { cartItems: cartItemsFromLocal || [], isLoading: false };
     }
     default:
       return state;
