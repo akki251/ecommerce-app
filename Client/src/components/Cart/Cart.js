@@ -6,7 +6,7 @@ import CartItem from './CartItem';
 const Cart = () => {
   const { cartItems, isLoading } = useSelector((state) => state.cart);
 
-  const totalBilAmount = cartItems.reduce(
+  const totalBilAmount = cartItems?.reduce(
     (accum, curr) => accum + curr.currentCount * curr.price,
     0,
   );

@@ -3,7 +3,7 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
   switch (action.type) {
     case ADD_ITEM: {
       //  1. check if exists  already
-      const ifAlreadyExistsIndex = state.cartItems.findIndex(
+      const ifAlreadyExistsIndex = state.cartItems?.findIndex(
         (item) => item._id === action.payload._id,
       );
 
@@ -29,7 +29,7 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
     }
 
     case 'INCREMENT_ITEM': {
-      const incrementItemIndex = state.cartItems.findIndex((item) => item._id === action.payload);
+      const incrementItemIndex = state.cartItems?.findIndex((item) => item._id === action.payload);
 
       state.cartItems[incrementItemIndex].currentCount += 1;
 
@@ -38,7 +38,7 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
       return { cartItems: state.cartItems };
     }
     case 'DECREMENT_ITEM': {
-      const decrementItemIndex = state.cartItems.findIndex((item) => item._id === action.payload);
+      const decrementItemIndex = state.cartItems?.findIndex((item) => item._id === action.payload);
 
       state.cartItems[decrementItemIndex].currentCount -= 1;
 
