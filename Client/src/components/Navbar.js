@@ -21,7 +21,7 @@ const Navbar = () => {
     dispatch({ type: 'LOAD_CART_ITEMS' });
   }, [dispatch]);
 
-  const totalCartItems = cartItems.reduce((prev, curr) => prev + curr.currentCount, 0);
+  const totalCartItems = cartItems?.reduce((prev, curr) => prev + curr.currentCount, 0) || 0;
 
   useEffect(() => {
     if (alert.success) {
