@@ -20,7 +20,7 @@ const Product = ({ item }) => {
 
   const deleteHandler = () => {
     setIsDelete((prev) => !prev);
-    dispatch(removeProductReq(item._id));
+    dispatch(removeProductReq(item?._id));
   };
 
   return (

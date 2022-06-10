@@ -4,7 +4,7 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
     case ADD_ITEM: {
       //  1. check if exists  already
       const ifAlreadyExistsIndex = state.cartItems?.findIndex(
-        (item) => item._id === action.payload._id,
+        (item) => item?._id === action.payload?._id,
       );
 
       // 2 if not create two prop curCnt , curPrice
