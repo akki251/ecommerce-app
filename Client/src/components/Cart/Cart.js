@@ -15,9 +15,9 @@ const Cart = () => {
     <Container className="py-3">
       <div className="d-flex justify-content-between align-items-center">
         <Text h3 className="py-4" weight="semibold" color="purple">
-          {cartItems.length > 0 ? 'Items are waiting for You!' : ''}
+          {cartItems?.length > 0 ? 'Items are waiting for You!' : ''}
         </Text>
-        {cartItems.length > 0 && <Text h5>Total Bill Amount : ${totalBilAmount.toFixed(2)}</Text>}
+        {cartItems?.length > 0 && <Text h5>Total Bill Amount : ${totalBilAmount.toFixed(2)}</Text>}
       </div>
 
       <Spacer y={2} />
@@ -27,7 +27,7 @@ const Cart = () => {
           /// change after fetching real items
           <CartItem key={Math.random() + item._id} item={item} />
         ))}
-      {!isLoading && cartItems.length === 0 && (
+      {!isLoading && cartItems?.length === 0 && (
         <Text className="text-center mt-5" h1>
           No Items in cart <span role="img" aria-label='emoji'>🛒</span>
         </Text>

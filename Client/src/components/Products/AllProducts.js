@@ -42,7 +42,7 @@ const AllProducts = () => {
           <Spacer y={4} />
           <Container>
             <Grid.Container gap={4}>
-              {finalProducts.map((item) => (
+              {finalProducts?.map((item) => (
                 <Grid key={item._id} xs={12} md={4}>
                   <Product item={item} />
                 </Grid>
