@@ -1,12 +1,9 @@
-const axios = require('axios');
-
 const Product = require('../Models/Product');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getProducts = catchAsync(async (req, res, next) => {
   const products = await Product.find().sort({ _id: -1 });
 
-  console.log('API  CALLED FROM BACKEND');
 
   res.status(200).json({
     status: 'success',

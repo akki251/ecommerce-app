@@ -13,6 +13,13 @@ app.use(bodyParser.json({ limit: '10mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to E-commerce-API',
+    status: 'success',
+  });
+});
+
 app.use('/api', productsRoutes);
 app.use(errorController);
 
