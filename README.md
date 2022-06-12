@@ -1,12 +1,9 @@
 
-<<<<<<< HEAD
-=======
 ## Live Link 👇
 
 https://ecommerce-react-app-test.netlify.app/products
 
 
->>>>>>> 4633ef7bf6e9861aca8dcd772263bd9230f1a44b
 # E-commerce App    
 
 An E commerce platform made using React JS, Redux, Mongo Db , and express JS.
@@ -46,8 +43,6 @@ The application is composed of the following Features:
 
 ![App Screenshot](https://github.com/akki251/ecommerce-app/blob/master/mockuper.png)
 
-<<<<<<< HEAD
-=======
 
 ## Run Locally
 
@@ -92,4 +87,3 @@ To run this project, you will need to add the following environment variables to
 
 
 <div align="center"><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/bootstrap.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/express.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/mongodb.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/preact.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react-router.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/redux.svg"/></div>
->>>>>>> 4633ef7bf6e9861aca8dcd772263bd9230f1a44b
