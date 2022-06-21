@@ -1,15 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from '../images/navbar-LOGO.png';
-import { Container, Card, Button, Image } from '@nextui-org/react';
+import { Container, Card, Button, Image, Input } from '@nextui-org/react';
 import { FaCartPlus } from 'react-icons/fa';
-import { AiOutlineFolderAdd } from 'react-icons/ai';
+import { AiOutlineFolderAdd, AiOutlineSearch } from 'react-icons/ai';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
+  const searchRef = useRef();
   const history = useHistory();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+  const [searchInput, setSearchInput] = useState('');
+
+
+
+
+  const onSearchHandler = () => {
+    const searchTerm = searchRef.current.value;
+    setSearchInput(searchTerm);
+    dispatch({ type: 'LOAD_SEARCH_PRODUCTS', payload: searchTerm });
+  };
 
   const alert = useSelector((state) => state.alert);
 
@@ -70,6 +81,18 @@ const Navbar = () => {
             </Button>
           </div>
           <div className="navbar__cart">
+            <span className="mx-5 navbar__search">
+              <Input
+                onChange={onSearchHandler}
+                ref={searchRef}
+                aria-label="close"
+                clearable
+                value={searchInput}
+                contentRightStyling={true}
+                placeholder="Your Favorite Here.."
+                contentRight={<AiOutlineSearch />}
+              />
+            </span>
             <span style={{ position: 'relative' }}>
               <span
                 style={{

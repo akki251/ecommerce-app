@@ -58,6 +58,9 @@ const cart = (state = { cartItems: [], isLoading: true }, action) => {
       const cartItemsFromLocal = JSON.parse(localStorage.getItem('cartItems'));
       return { cartItems: cartItemsFromLocal || [], isLoading: false };
     }
+
+  
+
     default:
       return state;
   }

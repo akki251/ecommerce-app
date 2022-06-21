@@ -10,8 +10,7 @@ export const getAllProductsReq = () => async (dispatch) => {
 
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: STOP_LOADING });
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
 export const getProductDetailReq = (id) => async (dispatch) => {
@@ -66,7 +65,7 @@ export const removeProductReq = (_id) => async (dispatch) => {
   try {
     await api.removeProduct(_id);
     dispatch({ type: REMOVE_PRODUCT, payload: _id });
-    dispatchSuccessAlert(dispatch, 'Product removed');
+    dispatchSuccessAlert(dispatch, 'Product deleted');
   } catch (error) {
     dispatchSuccessAlert(dispatch, 'Some error! Please try again');
   }

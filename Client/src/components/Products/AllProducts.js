@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsReq } from '../../Store/actions/products';
 import Product from './Product';
 
-
 const AllProducts = () => {
   const dispatch = useDispatch();
   const [isSort, setIsSort] = useState(false);
@@ -56,7 +55,13 @@ const AllProducts = () => {
           <Loading size="xl" />
         </div>
       )}
-      {/* <CreateProduct /> */}
+      {!isLoading && finalProducts.length === 0 && (
+        <div className="text-center" style={{ paddingTop: '10rem' }}>
+          <Text h3 color="gray">
+            No products Found
+          </Text>
+        </div>
+      )}
     </>
   );
 };
