@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = axios.create({
   // baseURL: 'http://localhost:5000/api',
-  baseURL: 'https://ecommerce-api-react-skill-test.herokuapp.com/api',
+  baseURL: 'https://rose-gorgeous-tadpole.cyclic.app/api',
 });
 
 export const getProducts = () => API.get('/products');
